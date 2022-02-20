@@ -96,7 +96,14 @@ img {
   display: flex;
   margin-left: auto;
 }
+.icon-contact-list {
+  display: inline-block;
+  align-items: center;
+}
+
 .header-contacts {
+  display: flex;
+  align-items: center;
   line-height: 1.17;
   letter-spacing: 0.02em;
 }
@@ -106,9 +113,23 @@ img {
 }
 .list-menu:hover,
 .list-menu:focus,
-.header-contacts:hover,
-.header-contacts:focus {
+.icon-contact-list:hover,
+.icon-contact-list:focus {
   color: var(--accent-color);
+}
+.icon-envelope,
+.icon-smartphone {
+  align-items: center;
+  margin-right: 10px;
+  fill: currentColor;
+}
+.icon-envelope {
+  width: 16px;
+  height: 12px;
+}
+.icon-smartphone {
+  width: 10px;
+  height: 16px;
 }
 
 .nav-list {
@@ -117,8 +138,8 @@ img {
 .nav-list .list-menu.current {
   color: var(--accent-color);
 }
-.nav-list .list-menu,
-.header-contacts-list .header-contacts {
+
+.nav-list .list-menu {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -132,31 +153,8 @@ img {
 }
 
 .header-contacts-list .item {
-  font-weight: 500;
   display: flex;
-}
-
-.icon-envelope {
-  display: inline-block;
-  width: 16px;
-  height: 12px;
-  align-self: center;
-  margin-right: 10px;
-  fill: var(--main-text-color);
-}
-.icon-smartphone {
-  display: inline-block;
-  width: 10px;
-  height: 16px;
-  align-self: center;
-  margin-right: 10px;
-  fill: var(--main-text-color);
-}
-.icon-envelope:hover,
-.icon-envelope:focus,
-.icon-smartphone:hover,
-.icon-smartphone:focus {
-  fill: var(--accent-color);
+  font-weight: 500;
 }
 
 /* ===================== Hero ======================= */
@@ -173,9 +171,12 @@ img {
     ),
     url(../images/bg-hero.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
 }
 .hero-container {
   text-align: center;
+  max-width: 1600px;
+  height: auto;
 }
 .hero-h {
   text-align: center;
@@ -233,7 +234,7 @@ h3 {
   flex-wrap: wrap;
 }
 .advantages-list > .advantages-item {
-  flex-basis: calc((100% - 3 * 30px) / 4);
+  flex-basis: calc((100% - 4 * 30px) / 4);
   margin-right: 30px;
 }
 .advantages-list > .advantages-item:nth-child(4n) {
@@ -348,6 +349,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 16px;
 }
 .icon-socials {
   display: flex;
@@ -365,21 +367,29 @@ h3 {
 .icon-socials:focus {
   fill: var(--backgroung-main-color);
 }
-.social-links {
-  margin-top: 16px;
-  flex-wrap: wrap;
-  /* flex-basis: calc((100% - 4 * 10px) / 4); */
-}
+
 .social-links:hover,
 .social-links:focus {
   background-color: var(--accent-color);
   border-radius: 50%;
 }
 /* ========================Постоянные партнеры======================= */
-.partners-list {
-  display: inline-block;
-  justify-items: center;
+.partners-logo {
+  display: flex;
+  flex-wrap: wrap;
 }
+
+.partners-list {
+  display: flex;
+  flex-basis: calc((100% - 6 * 30px) / 6);
+}
+.partners-list:not(:nth-child(-n + 6)) {
+  margin-top: 30px;
+}
+.partners-list:not(:nth-child(6n + 1)) {
+  margin-left: 30px;
+}
+
 .icon-partners-list {
   width: 170px;
   height: 92px;
@@ -390,23 +400,24 @@ h3 {
   border-radius: 4px;
   fill: var(--icon-base-color);
 }
-
+.icon-partner-link:hover {
+  fill: var(--accent-color);
+}
 .icon-partners-list:hover,
 .icon-partners-list:focus {
   fill: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }
-.partners-logo {
-  display: flex;
-  justify-content: center;
-}
+
 /* =========================== Footer =============================== */
 .footer-background {
   background-color: var(--backgroung-hero-footer);
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 .footer-container {
   display: flex;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  align-items: baseline;
 }
 .footer-adress-container {
   margin-top: 20px;
@@ -416,14 +427,13 @@ h3 {
 }
 .address-list {
   color: var(--backgroung-main-color);
-
   line-height: 2;
 }
 .footer-adress {
   color: var(--footer-adress-transparent);
 }
 
-.footer-adress-container > .address-common-list:not(:last-child) {
+.address-common-list:not(:last-child) {
   margin-bottom: 9px;
 }
 .to-join-footer {
@@ -434,6 +444,7 @@ h3 {
 }
 .social-links-footer {
   display: flex;
+  margin-top: 20px;
 }
 .icon-socials-footer {
   display: flex;
@@ -502,8 +513,11 @@ h3 {
   margin-top: 30px;
   flex-basis: calc((100% - 3 * 30px) / 3);
 }
-.project-list-item:hover,
-.project-list-item:focus {
+.project-item-link {
+  display: block;
+}
+.project-item-link:hover,
+.project-item-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
